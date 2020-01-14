@@ -2,8 +2,8 @@
 
 
 resource "aws_security_group" "api_security_group" {
-  name        = "${var.PROJECT}-ec2-sg-${var.ENVIROMENT}"
-  description = "security group for back instance"
+  name        = "${var.PROJECT}-ec2-sg-microservices-${var.ENVIROMENT}"
+  description = "security group for microservices instance"
   egress {
     from_port   = 0
     to_port     = 0
@@ -25,6 +25,20 @@ resource "aws_security_group" "api_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 3002
+    to_port     = 3002
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags =  {
     Name        = "${var.PROJECT}-ec2-sg-${var.ENVIROMENT}"
     Owner       = "${var.OWNER}"
@@ -42,7 +56,7 @@ data "template_file" "init" {
 }
 
 resource "aws_key_pair" "mykeypair" {
-  key_name   = "${var.PROJECT}-key-back-${var.ENVIROMENT}"
+  key_name   = "${var.PROJECT}-key-microservices-${var.ENVIROMENT}"
   public_key = "${file("${path.root}/${var.PATH_TO_PUBLIC_KEY}")}"
 }
 

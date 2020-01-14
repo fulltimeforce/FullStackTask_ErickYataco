@@ -1,12 +1,12 @@
 'use strict'
 
-var User = require('../models/role');
+var Role = require('../models/role');
 
 module.exports.getRole = async function (req, res){
 
     var userId = req.params.id;
 
-    User.findById(userId, (err, user) => {
+    Role.findById(roleId, (err, user) => {
         
         if(err)return res.status(500).send({message: err});
         
@@ -18,7 +18,7 @@ module.exports.getRole = async function (req, res){
 
 module.exports.getAllRole = async function (req, res){
 
-    User.find({}, (err, users) => {
+    Role.find({}, (err, users) => {
         if(err)return res.status(500).send({message: err});
         res.send({users: users});
      });

@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var user_routes = require('./routes/user'); 
+var user_routes = require('./routes/role'); 
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
