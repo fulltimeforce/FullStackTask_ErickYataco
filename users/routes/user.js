@@ -9,7 +9,8 @@ var api = express.Router();
 //api.get('/user/:id', md_auth.ensureAuth, UserController.getUser);
 
 api.get('/user/:id', UserController.getUser);
-api.get('/user/all', UserController.getAllUser);
+api.get('/user', UserController.getAllUser);
 api.post('/user', UserController.createUser);
+api.get('/user/test/:id', UserController.test);
 // Exportamos la configuración
 module.exports = api;

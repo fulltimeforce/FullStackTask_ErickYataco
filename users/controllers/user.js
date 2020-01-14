@@ -19,6 +19,7 @@ module.exports.getUser = async function (req, res){
 module.exports.getAllUser = async function (req, res){
 
     User.find({}, (err, users) => {
+        if(err)return res.status(500).send({message: err});
         res.send({users: users});
      });
 }
