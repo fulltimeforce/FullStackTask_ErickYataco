@@ -6,7 +6,7 @@ var UserController = require('../controllers/user');
 var api = express.Router();
 
 api.get('/user/:id', UserController.getUser);
-api.get('/user', UserController.getAllUser);
+api.get('/users', UserController.getAllUser);
 api.post('/user', UserController.createUser);
 api.get('/user/test/:id', UserController.test);
 // Exportamos la configuración

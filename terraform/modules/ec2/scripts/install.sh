@@ -13,7 +13,6 @@ sudo apt-get install -y mongodb-org --allow-unauthenticated
 
 sudo service mongod start
 sudo service mongod status
-# sudo systemctl enable mongod && sudo systemctl start mongod
 
 cd /home/ubuntu
 sudo git clone -b ${branch} https://${user}:${pass}@github.com/ErickYataco/fulltimeforce-api-gateway.git
@@ -32,8 +31,4 @@ cd /var/www/roles
 sudo npm install
 sudo pm2 start index.js
 
-
-# sudo pm2 startup
-# sudo pm2 save
-#sudo service nginx restart
 
