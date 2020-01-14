@@ -10,7 +10,7 @@ module.exports.getRole = async function (req, res){
         
         if(err)return res.status(500).send({message: err});
         
-        if(!user) return res.status(404).send({message: 'EL usuario no existe'});
+        if(!user) return res.status(404).send({message: 'EL rol no existe'});
        
         res.send({message: user})
     });
@@ -18,9 +18,9 @@ module.exports.getRole = async function (req, res){
 
 module.exports.getAllRole = async function (req, res){
 
-    Role.find({}, (err, users) => {
+    Role.find({}, (err, roles) => {
         if(err)return res.status(500).send({message: err});
-        res.send({users: users});
+        res.send({roles: roles});
      });
 }
 
